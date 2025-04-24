@@ -12,8 +12,6 @@
 """  # noqa: E501
 
 
-from setuptools import setup, find_packages  # noqa: H301
-
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,3 +21,54 @@ from setuptools import setup, find_packages  # noqa: H301
 NAME = "tatproject"
 VERSION = "0.0.1"
 PYTHON_REQUIRES = ">= 3.8"
+
+
+import os
+
+from setuptools import find_packages, setup  # noqa: H301
+
+# Make sure everything is relative to setup.py
+install_path = os.path.dirname(os.path.abspath(__file__))
+os.chdir(install_path)
+
+DESCRIPTION = "Python SDK for the Tat Operator"
+# Try to read description, otherwise fallback to short description
+try:
+    with open(os.path.join("docs", "README.md")) as filey:
+        LONG_DESCRIPTION = filey.read()
+except Exception:
+    LONG_DESCRIPTION = DESCRIPTION
+
+################################################################################
+# MAIN #########################################################################
+################################################################################
+
+if __name__ == "__main__":
+    setup(
+        name="tatoperator",
+        version="0.0.1",
+        author="tat",
+        author_email="tat@users.noreply.github.com",
+        maintainer="tat",
+        packages=find_packages(),
+        include_package_data=True,
+        zip_safe=False,
+        url="https://github.com/tatsuya-hayashi/tatope/tree/main/sdk/python/v1",
+        license="Apache 2.0",
+        description=DESCRIPTION,
+        long_description=LONG_DESCRIPTION,
+        long_description_content_type="text/markdown",
+        keywords="tat-operator",
+        setup_requires=["pytest-runner"],
+        install_requires=["kubernetes", "requests"],
+        tests_require=["pytest", "pytest-cov"],
+        classifiers=[
+            "Intended Audience :: Developers",
+            "License :: OSI Approved :: Apache Software License",
+            "Programming Language :: Python",
+            "Topic :: Software Development",
+            "Operating System :: Unix",
+            "Programming Language :: Python :: 3.7",
+        ],
+    )
+

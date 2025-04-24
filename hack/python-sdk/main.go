@@ -54,7 +54,7 @@ func main() {
 // Our strategy here is to replace specific needs with classes we will define
 func swaggify(name string) string {
 
-	// These are specific to the Flux Operator
+	// These are specific to the Tat Operator
 	name = strings.Replace(name, "github.com/tatsuyahayashi/tatope/api/v1.", "", -1)
 	// name = strings.Replace(name, "../api/v1alpha2/.", "", -1)
 	// name = strings.Replace(name, "./api/v1alpha2/.", "", -1)
