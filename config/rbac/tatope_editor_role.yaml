@@ -1,0 +1,27 @@
+# permissions for end users to edit tatopes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: tatope
+    app.kubernetes.io/managed-by: kustomize
+  name: tatope-editor-role
+rules:
+- apiGroups:
+  - tatope.tatope.local
+  resources:
+  - tatopes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - tatope.tatope.local
+  resources:
+  - tatopes/status
+  verbs:
+  - get

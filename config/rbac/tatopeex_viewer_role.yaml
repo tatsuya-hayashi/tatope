@@ -1,0 +1,23 @@
+# permissions for end users to view tatopeexes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: tatope
+    app.kubernetes.io/managed-by: kustomize
+  name: tatopeex-viewer-role
+rules:
+- apiGroups:
+  - tatope.tatope.local
+  resources:
+  - tatopeexes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - tatope.tatope.local
+  resources:
+  - tatopeexes/status
+  verbs:
+  - get

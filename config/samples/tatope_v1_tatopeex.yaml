@@ -1,0 +1,9 @@
+apiVersion: tatope.tatope.local/v1
+kind: TatOpeEx
+metadata:
+  labels:
+    app.kubernetes.io/name: tatope
+    app.kubernetes.io/managed-by: kustomize
+  name: tatopeex-sample
+spec:
+  # TODO(user): Add fields here
