@@ -1,0 +1,165 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Python SDK for  Tat Operator",
+    "title": "fluxoperator",
+    "version": "v1"
+  },
+  "paths": {},
+  "definitions": {
+    "github.com/tatsuyahayashi/tatope/api/v1.TatOpe": {
+      "description": "TatOpe is the Schema for the tatopes API",
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string"
+        },
+        "metadata": {
+          "default": {},
+          "$ref": "#/definitions/k8s.io~1apimachinery~1pkg~1apis~1meta~1v1.ObjectMeta"
+        },
+        "spec": {
+          "default": {},
+          "$ref": "#/definitions/github.com~1tatsuyahayashi~1tatope~1api~1v1.TatOpeSpec"
+        },
+        "status": {
+          "default": {},
+          "$ref": "#/definitions/github.com~1tatsuyahayashi~1tatope~1api~1v1.TatOpeStatus"
+        }
+      }
+    },
+    "github.com/tatsuyahayashi/tatope/api/v1.TatOpeEx": {
+      "description": "TatOpeEx is the Schema for the tatopeexes API",
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string"
+        },
+        "metadata": {
+          "default": {},
+          "$ref": "#/definitions/k8s.io~1apimachinery~1pkg~1apis~1meta~1v1.ObjectMeta"
+        },
+        "spec": {
+          "default": {},
+          "$ref": "#/definitions/github.com~1tatsuyahayashi~1tatope~1api~1v1.TatOpeExSpec"
+        },
+        "status": {
+          "default": {},
+          "$ref": "#/definitions/github.com~1tatsuyahayashi~1tatope~1api~1v1.TatOpeExStatus"
+        }
+      }
+    },
+    "github.com/tatsuyahayashi/tatope/api/v1.TatOpeExList": {
+      "description": "TatOpeExList contains a list of TatOpeEx",
+      "type": "object",
+      "required": [
+        "items"
+      ],
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "default": {},
+            "$ref": "#/definitions/github.com~1tatsuyahayashi~1tatope~1api~1v1.TatOpeEx"
+          }
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string"
+        },
+        "metadata": {
+          "default": {},
+          "$ref": "#/definitions/k8s.io~1apimachinery~1pkg~1apis~1meta~1v1.ListMeta"
+        }
+      }
+    },
+    "github.com/tatsuyahayashi/tatope/api/v1.TatOpeExSpec": {
+      "description": "TatOpeExSpec defines the desired state of TatOpeEx",
+      "type": "object",
+      "properties": {
+        "foo": {
+          "description": "Foo is an example field of TatOpeEx. Edit tatopeex_types.go to remove/update",
+          "type": "string"
+        }
+      }
+    },
+    "github.com/tatsuyahayashi/tatope/api/v1.TatOpeExStatus": {
+      "description": "TatOpeExStatus defines the observed state of TatOpeEx",
+      "type": "object"
+    },
+    "github.com/tatsuyahayashi/tatope/api/v1.TatOpeList": {
+      "description": "TatOpeList contains a list of TatOpe",
+      "type": "object",
+      "required": [
+        "items"
+      ],
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "default": {},
+            "$ref": "#/definitions/github.com~1tatsuyahayashi~1tatope~1api~1v1.TatOpe"
+          }
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string"
+        },
+        "metadata": {
+          "default": {},
+          "$ref": "#/definitions/k8s.io~1apimachinery~1pkg~1apis~1meta~1v1.ListMeta"
+        }
+      }
+    },
+    "github.com/tatsuyahayashi/tatope/api/v1.TatOpeSpec": {
+      "description": "TatOpeSpec defines the desired state of TatOpe",
+      "type": "object",
+      "properties": {
+        "foo": {
+          "description": "Foo is an example field of TatOpe. Edit tatope_types.go to remove/update",
+          "type": "string"
+        },
+        "ports": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "x-kubernetes-list-type": "set"
+        }
+      }
+    },
+    "github.com/tatsuyahayashi/tatope/api/v1.TatOpeStatus": {
+      "description": "TatOpeStatus defines the observed state of TatOpe",
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "The Tat Operator",
+    "url": "https://tatope.local/tat"
+  }
+}

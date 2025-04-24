@@ -195,6 +195,12 @@ func schema_tatsuyahayashi_tatope_api_v1_TatOpeExSpec(ref common.ReferenceCallba
 							Format:      "",
 						},
 					},
+					"bar": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
 				},
 			},
 		},
@@ -207,6 +213,15 @@ func schema_tatsuyahayashi_tatope_api_v1_TatOpeExStatus(ref common.ReferenceCall
 			SchemaProps: spec.SchemaProps{
 				Description: "TatOpeExStatus defines the observed state of TatOpeEx",
 				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"state": {
+						SchemaProps: spec.SchemaProps{
+							Description: "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
 			},
 		},
 	}

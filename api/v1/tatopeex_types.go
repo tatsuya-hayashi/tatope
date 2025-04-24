@@ -30,12 +30,14 @@ type TatOpeExSpec struct {
 
 	// Foo is an example field of TatOpeEx. Edit tatopeex_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
+	Bar string `json:"bar,omitempty"`
 }
 
 // TatOpeExStatus defines the observed state of TatOpeEx
 type TatOpeExStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	State string `json:"state,omitempty"`
 }
 
 // +kubebuilder:object:root=true

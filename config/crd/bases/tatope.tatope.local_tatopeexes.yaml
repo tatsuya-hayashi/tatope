@@ -4,20 +4,20 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.16.1
-  name: tatopes.tatope.tatope.local
+  name: tatopeexes.tatope.tatope.local
 spec:
   group: tatope.tatope.local
   names:
-    kind: TatOpe
-    listKind: TatOpeList
-    plural: tatopes
-    singular: tatope
+    kind: TatOpeEx
+    listKind: TatOpeExList
+    plural: tatopeexes
+    singular: tatopeex
   scope: Namespaced
   versions:
   - name: v1
     schema:
       openAPIV3Schema:
-        description: TatOpe is the Schema for the tatopes API
+        description: TatOpeEx is the Schema for the tatopeexes API
         properties:
           apiVersion:
             description: |-
@@ -37,23 +37,22 @@ spec:
           metadata:
             type: object
           spec:
-            description: TatOpeSpec defines the desired state of TatOpe
+            description: TatOpeExSpec defines the desired state of TatOpeEx
             properties:
+              bar:
+                type: string
               foo:
-                description: Foo is an example field of TatOpe. Edit tatope_types.go
+                description: Foo is an example field of TatOpeEx. Edit tatopeex_types.go
                   to remove/update
                 type: string
-              ports:
-                items:
-                  format: int32
-                  type: integer
-                type: array
-                x-kubernetes-list-type: set
             type: object
           status:
-            description: TatOpeStatus defines the observed state of TatOpe
+            description: TatOpeExStatus defines the observed state of TatOpeEx
             properties:
               state:
+                description: |-
+                  INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
+                  Important: Run "make" to regenerate code after modifying this file
                 type: string
             type: object
         type: object

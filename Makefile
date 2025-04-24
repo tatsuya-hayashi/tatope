@@ -5,6 +5,7 @@
 # - use environment variables to overwrite this value (e.g export VERSION=0.0.2)
 VERSION ?= 0.0.1
 
+# DEBUGDEBUG ADDED
 API_VERSION ?= v1
 
 # CHANNELS define the bundle channels used in the bundle.
@@ -100,6 +101,7 @@ help: ## Display this help.
 manifests: controller-gen ## Generate WebhookConfiguration, ClusterRole and CustomResourceDefinition objects.
 	$(CONTROLLER_GEN) rbac:roleName=manager-role crd webhook paths="./..." output:crd:artifacts:config=config/crd/bases
 
+# DEBUGDEBUG MODIFIED
 .PHONY: generate
 generate: controller-gen openapi-gen ## Generate code containing DeepCopy, DeepCopyInto, and DeepCopyObject method implementations.
 	$(CONTROLLER_GEN) object:headerFile="hack/boilerplate.go.txt" paths="./..."
@@ -214,7 +216,7 @@ CONTROLLER_GEN ?= $(LOCALBIN)/controller-gen
 ENVTEST ?= $(LOCALBIN)/setup-envtest
 GOLANGCI_LINT = $(LOCALBIN)/golangci-lint
 
-## NEW TOOL
+## # DEBUGDEBUG ADDED NEW TOOL
 OPENAPI_GEN ?= $(LOCALBIN)/openapi-gen
 SWAGGER_JAR ?= ${LOCALBIN}/openapi-generator-cli.jar
 SWAGGER_API_JSON ?= ./api/${API_VERSION}/swagger.json
@@ -235,11 +237,26 @@ controller-gen: $(CONTROLLER_GEN) ## Download controller-gen locally if necessar
 $(CONTROLLER_GEN): $(LOCALBIN)
 	$(call go-install-tool,$(CONTROLLER_GEN),sigs.k8s.io/controller-tools/cmd/controller-gen,$(CONTROLLER_TOOLS_VERSION))
 
+## # DEBUGDEBUG ADDED
 # Build the latest openapi-gen from source
 .PHONY: openapi-gen
 openapi-gen: $(OPENAPI_GEN) ## Download openapi-gen locally if necessary.
 $(OPENAPI_GEN): $(LOCALBIN)
 	which ${OPENAPI_GEN} > /dev/null || (git clone https://github.com/kubernetes/kube-openapi /tmp/kube-openapi && cd /tmp/kube-openapi && go build -o ${OPENAPI_GEN} ./cmd/openapi-gen)
+
+
+.PHONY: swagger-jar
+swagger-jar: $(SWAGGER_JAR) ## Download openapi-generator-cli locally if necessary.
+$(SWAGGER_JAR): $(LOCALBIN)
+	wget -qO ${SWAGGER_JAR} "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.9.0/openapi-generator-cli-7.9.0.jar"
+
+.PHONY: api
+api: generate api
+	go run hack/python-sdk/main.go ${API_VERSION} > ${SWAGGER_API_JSON}
+	rm -rf ./sdk/python/${API_VERSION}/fluxoperator/model/*
+	rm -rf ./sdk/python/${API_VERSION}/fluxoperator/test/test_*.py
+	java -jar ${SWAGGER_JAR} generate -i ${SWAGGER_API_JSON} -g python -o ./sdk/python/${API_VERSION} -c ./hack/python-sdk/swagger_config.json --git-repo-id tat-operator --git-user-id tatsuya-hayashi
+
 
 .PHONY: envtest
 envtest: $(ENVTEST) ## Download setup-envtest locally if necessary.
