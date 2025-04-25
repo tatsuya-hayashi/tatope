@@ -256,7 +256,7 @@ api: generate api
 	rm -rf ./sdk/python/${API_VERSION}/tatope/model/*
 	rm -rf ./sdk/python/${API_VERSION}/tatope/test/test_*.py
 	java -jar ${SWAGGER_JAR} generate -i ${SWAGGER_API_JSON} -g python -o ./sdk/python/${API_VERSION} -c ./hack/python-sdk/swagger_config.json --git-repo-id tat-operator --git-user-id tatsuya-hayashi
-	cp ./hack/python-sdk/tatope/* ./sdk/python/${API_VERSION}/tatope/model/
+	cp ./hack/python-sdk/tatope/* ./sdk/python/${API_VERSION}/tatope/models/
 
 .PHONY: envtest
 envtest: $(ENVTEST) ## Download setup-envtest locally if necessary.

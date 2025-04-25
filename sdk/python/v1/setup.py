@@ -71,4 +71,3 @@ if __name__ == "__main__":
             "Programming Language :: Python :: 3.7",
         ],
     )
-
