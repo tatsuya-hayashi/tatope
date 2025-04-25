@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from tatope.models.tat_ope_ex_spec import TatOpeExSpec
 from tatope.models.tat_ope_ex_status import TatOpeExStatus
+from tatope.models.v1_object_meta import V1ObjectMeta
 from typing import Optional, Set
 from typing_extensions import Self
 

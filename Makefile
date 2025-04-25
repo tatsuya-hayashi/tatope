@@ -107,7 +107,11 @@ generate: controller-gen openapi-gen ## Generate code containing DeepCopy, DeepC
 	$(CONTROLLER_GEN) object:headerFile="hack/boilerplate.go.txt" paths="./..."
 	rm -rf ./api/${API_VERSION}/zz_generated.openapi.go
 	rm -rf ./api/${API_VERSION}/zz_generated.openapi.go
-	${OPENAPI_GEN} --logtostderr=true  --output-file zz_generated.openapi.go --output-pkg "github.com/flux-framework/flux-operator/api/${API_VERSION}" --output-dir ./api/${API_VERSION}/ --go-header-file ./hack/boilerplate.go.txt -r "-" ./api/${API_VERSION}/
+	${OPENAPI_GEN} --logtostderr=true  --output-file zz_generated.openapi.go --output-pkg "github.com/tatsuya-hayashi/tatope/api/${API_VERSION}" --output-dir ./api/${API_VERSION}/ --go-header-file ./hack/boilerplate.go.txt -r "-" \
+	"k8s.io/apimachinery/pkg/apis/meta/v1" \
+	"k8s.io/apimachinery/pkg/runtime" \
+	"k8s.io/apimachinery/pkg/version" \
+	./api/${API_VERSION}/
 
 .PHONY: fmt
 fmt: ## Run go fmt against code.
@@ -248,7 +252,7 @@ $(OPENAPI_GEN): $(LOCALBIN)
 .PHONY: swagger-jar
 swagger-jar: $(SWAGGER_JAR) ## Download openapi-generator-cli locally if necessary.
 $(SWAGGER_JAR): $(LOCALBIN)
-	wget -qO ${SWAGGER_JAR} "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.9.0/openapi-generator-cli-7.9.0.jar"
+	wget -qO ${SWAGGER_JAR} "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.12.0/openapi-generator-cli-7.12.0.jar"
 
 .PHONY: api
 api: generate api
@@ -256,7 +260,8 @@ api: generate api
 	rm -rf ./sdk/python/${API_VERSION}/tatope/model/*
 	rm -rf ./sdk/python/${API_VERSION}/tatope/test/test_*.py
 	java -jar ${SWAGGER_JAR} generate -i ${SWAGGER_API_JSON} -g python -o ./sdk/python/${API_VERSION} -c ./hack/python-sdk/swagger_config.json --git-repo-id tat-operator --git-user-id tatsuya-hayashi
-	cp ./hack/python-sdk/tatope/* ./sdk/python/${API_VERSION}/tatope/models/
+	cp ./hack/python-sdk/tatope/setup.py ./sdk/python/${API_VERSION}/
+
 
 .PHONY: envtest
 envtest: $(ENVTEST) ## Download setup-envtest locally if necessary.

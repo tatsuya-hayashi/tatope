@@ -63,12 +63,22 @@ func swaggify(name string) string {
 	//name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/v1.Condition", "v1Condition", -1)
 
 	// // k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta
-	name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta", "v1ListMeta", -1)
+	//	name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta", "v1ListMeta", -1)
 
 	// // k8s.io/apimachinery/pkg/util/intstr.IntOrString -> IntOrString
 	// name = strings.Replace(name, "k8s.io/apimachinery/pkg/util/intstr.", "", -1)
 
 	// // k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta
-	name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta", "v1ObjectMeta", -1)
+	//	name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta", "v1ObjectMeta", -1)
+
+	name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/", "", -1)
+	name = strings.Replace(name, "k8s.io/apimachinery/pkg/runtime/", "", -1)
+	name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/", "", -1)
+	name = strings.Replace(name, "k8s.io/apimachinery/pkg/runtime/", "", -1)
+	name = strings.Replace(name, "k8s.io/apimachinery/pkg/api/", "", -1)
+	name = strings.Replace(name, "k8s.io/kubernetes/pkg/controller/", "", -1)
+	name = strings.Replace(name, "k8s.io/client-go/listers/core/", "", -1)
+	name = strings.Replace(name, "k8s.io/client-go/util/workqueue", "", -1)
+	name = strings.Replace(name, "/", ".", -1)
 	return name
 }
