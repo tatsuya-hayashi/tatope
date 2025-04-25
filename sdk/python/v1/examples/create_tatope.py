@@ -45,6 +45,7 @@ crd_api.patch_namespaced_custom_object_status(
     version="v1",
     namespace="default",
     plural="tatopes",
+    name="hogehoge",
     body={'status':{'state':'active'}}
 )
 crd_api.get_namespaced_custom_object(
