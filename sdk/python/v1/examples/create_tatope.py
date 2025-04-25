@@ -26,14 +26,27 @@ print(t)
 
 crd_api = client.CustomObjectsApi()
 
-result = crd_api.create_namespaced_custom_object(
+try:
+    result = crd_api.create_namespaced_custom_object(
+       group="tatope.tatope.local",
+       version="v1",
+       namespace="default",
+       plural="tatopes",
+       body=t
+    )
+except Exception as e:
+    print(e)
+
+
+
+
+crd_api.patch_namespaced_custom_object_status(
     group="tatope.tatope.local",
     version="v1",
     namespace="default",
     plural="tatopes",
-    body=t
+    body={'status':{'state':'active'}}
 )
-
 crd_api.get_namespaced_custom_object(
     group="tatope.tatope.local",
     version="v1",
