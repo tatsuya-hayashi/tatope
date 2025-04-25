@@ -1,5 +1,5 @@
 {
-  "swagger": "3.1.0",
+  "swagger": "2.0",
   "info": {
     "description": "Python SDK for Tat-Operator",
     "title": "tatoperator",

@@ -253,10 +253,10 @@ $(SWAGGER_JAR): $(LOCALBIN)
 .PHONY: api
 api: generate api
 	go run hack/python-sdk/main.go ${API_VERSION} > ${SWAGGER_API_JSON}
-	rm -rf ./sdk/python/${API_VERSION}/fluxoperator/model/*
-	rm -rf ./sdk/python/${API_VERSION}/fluxoperator/test/test_*.py
+	rm -rf ./sdk/python/${API_VERSION}/tatope/model/*
+	rm -rf ./sdk/python/${API_VERSION}/tatope/test/test_*.py
 	java -jar ${SWAGGER_JAR} generate -i ${SWAGGER_API_JSON} -g python -o ./sdk/python/${API_VERSION} -c ./hack/python-sdk/swagger_config.json --git-repo-id tat-operator --git-user-id tatsuya-hayashi
-
+	cp ./hack/python-sdk/tatope/* ./sdk/python/${API_VERSION}/tatope/model/
 
 .PHONY: envtest
 envtest: $(ENVTEST) ## Download setup-envtest locally if necessary.
