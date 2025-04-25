@@ -55,3 +55,5 @@ crd_api.get_namespaced_custom_object(
     plural="tatopes",
     name="hogehoge"
 )
+
+print("end")
