@@ -48,12 +48,15 @@ crd_api.patch_namespaced_custom_object_status(
     name="hogehoge",
     body={'status':{'state':'active'}}
 )
-crd_api.get_namespaced_custom_object(
+
+g = crd_api.get_namespaced_custom_object(
     group="tatope.tatope.local",
     version="v1",
     namespace="default",
     plural="tatopes",
     name="hogehoge"
 )
+
+print(g)
 
 print("end")
