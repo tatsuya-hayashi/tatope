@@ -1,3 +1,4 @@
+from kubernetes import client, config
 from kubernetes.client import V1ObjectMeta
 
 from tatope.models import TatOpe, TatOpeSpec, TatOpeStatus
@@ -20,3 +21,5 @@ t = TatOpe(
         ports=[12,34]
     )
 )
+
+print(t)
