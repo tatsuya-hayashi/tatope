@@ -141,10 +141,17 @@
     "TatOpeSpec": {
       "description": "TatOpeSpec defines the desired state of TatOpe",
       "type": "object",
+      "required": [
+        "hoge"
+      ],
       "properties": {
         "foo": {
           "description": "Foo is an example field of TatOpe. Edit tatope_types.go to remove/update",
           "type": "string"
+        },
+        "hoge": {
+          "type": "string",
+          "default": ""
         },
         "ports": {
           "type": "array",

@@ -344,6 +344,13 @@ func schema_tatsuyahayashi_tatope_api_v1_TatOpeSpec(ref common.ReferenceCallback
 							Format:      "",
 						},
 					},
+					"hoge": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
 					"ports": {
 						VendorExtensible: spec.VendorExtensible{
 							Extensions: spec.Extensions{
@@ -364,6 +371,7 @@ func schema_tatsuyahayashi_tatope_api_v1_TatOpeSpec(ref common.ReferenceCallback
 						},
 					},
 				},
+				Required: []string{"hoge"},
 			},
 		},
 	}

@@ -29,7 +29,8 @@ type TatOpeSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of TatOpe. Edit tatope_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Foo  string `json:"foo,omitempty"`
+	Hoge string `json:"hoge"`
 	// +listType=set
 	Ports []int32 `json:"ports,omitempty"`
 }

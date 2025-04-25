@@ -27,8 +27,9 @@ class TatOpeSpec(BaseModel):
     TatOpeSpec defines the desired state of TatOpe
     """ # noqa: E501
     foo: Optional[StrictStr] = Field(default=None, description="Foo is an example field of TatOpe. Edit tatope_types.go to remove/update")
+    hoge: StrictStr
     ports: Optional[List[StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["foo", "ports"]
+    __properties: ClassVar[List[str]] = ["foo", "hoge", "ports"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +83,7 @@ class TatOpeSpec(BaseModel):
 
         _obj = cls.model_validate({
             "foo": obj.get("foo"),
+            "hoge": obj.get("hoge") if obj.get("hoge") is not None else '',
             "ports": obj.get("ports")
         })
         return _obj
