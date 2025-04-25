@@ -21,7 +21,7 @@
         },
         "metadata": {
           "default": {},
-          "$ref": "#/definitions/v1ObjectMeta"
+          "$ref": "#/definitions/v1.ObjectMeta"
         },
         "spec": {
           "default": {},
@@ -47,7 +47,7 @@
         },
         "metadata": {
           "default": {},
-          "$ref": "#/definitions/v1ObjectMeta"
+          "$ref": "#/definitions/v1.ObjectMeta"
         },
         "spec": {
           "default": {},
@@ -83,7 +83,7 @@
         },
         "metadata": {
           "default": {},
-          "$ref": "#/definitions/v1ListMeta"
+          "$ref": "#/definitions/v1.ListMeta"
         }
       }
     },
@@ -134,7 +134,7 @@
         },
         "metadata": {
           "default": {},
-          "$ref": "#/definitions/v1ListMeta"
+          "$ref": "#/definitions/v1.ListMeta"
         }
       }
     },
