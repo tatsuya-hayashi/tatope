@@ -10,7 +10,7 @@ m = V1ObjectMeta(
     name="hogehoge",
     namespace="default"
 )
-print(m)
+#print(m)
 
 t = TatOpe(
     kind="TatOpe",
@@ -22,7 +22,7 @@ t = TatOpe(
     )
 ).to_dict()
 
-print(t)
+#print(t)
 
 crd_api = client.CustomObjectsApi()
 
