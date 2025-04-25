@@ -1,4 +1,3 @@
-from kubernetes import client, config
 from kubernetes.client import V1ObjectMeta
 
 from tatope.models import TatOpe, TatOpeSpec, TatOpeStatus
@@ -9,6 +8,7 @@ m = V1ObjectMeta(
     name="hogehoge",
     namespace="default"
 )
+print(m)
 
 t = TatOpe(
     kind="TatOpe",

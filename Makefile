@@ -108,10 +108,12 @@ generate: controller-gen openapi-gen ## Generate code containing DeepCopy, DeepC
 	rm -rf ./api/${API_VERSION}/zz_generated.openapi.go
 	rm -rf ./api/${API_VERSION}/zz_generated.openapi.go
 	${OPENAPI_GEN} --logtostderr=true  --output-file zz_generated.openapi.go --output-pkg "github.com/tatsuya-hayashi/tatope/api/${API_VERSION}" --output-dir ./api/${API_VERSION}/ --go-header-file ./hack/boilerplate.go.txt -r "-" \
-	"k8s.io/apimachinery/pkg/apis/meta/v1" \
-	"k8s.io/apimachinery/pkg/runtime" \
-	"k8s.io/apimachinery/pkg/version" \
 	./api/${API_VERSION}/
+
+
+#	"k8s.io/apimachinery/pkg/apis/meta/v1" \
+#	"k8s.io/apimachinery/pkg/runtime" \
+#	"k8s.io/apimachinery/pkg/version" \
 
 .PHONY: fmt
 fmt: ## Run go fmt against code.

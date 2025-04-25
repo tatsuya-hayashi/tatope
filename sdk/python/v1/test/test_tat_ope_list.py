@@ -40,47 +40,10 @@ class TestTatOpeList(unittest.TestCase):
                     tatope.models.tat_ope.TatOpe(
                         api_version = '', 
                         kind = '', 
-                        metadata = tatope.models.v1/object_meta.v1.ObjectMeta(
-                            annotations = {
-                                'key' : ''
-                                }, 
-                            creation_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            deletion_grace_period_seconds = 56, 
-                            deletion_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            finalizers = [
-                                ''
-                                ], 
-                            generate_name = '', 
-                            generation = 56, 
-                            labels = {
-                                'key' : ''
-                                }, 
-                            managed_fields = [
-                                tatope.models.v1/managed_fields_entry.v1.ManagedFieldsEntry(
-                                    api_version = '', 
-                                    fields_type = '', 
-                                    fields_v1 = tatope.models.v1/fields_v1.v1.FieldsV1(), 
-                                    manager = '', 
-                                    operation = '', 
-                                    subresource = '', 
-                                    time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                                ], 
-                            name = '', 
-                            namespace = '', 
-                            owner_references = [
-                                tatope.models.v1/owner_reference.v1.OwnerReference(
-                                    api_version = '', 
-                                    block_owner_deletion = True, 
-                                    controller = True, 
-                                    kind = '', 
-                                    name = '', 
-                                    uid = '', )
-                                ], 
-                            resource_version = '', 
-                            self_link = '', 
-                            uid = '', ), 
+                        metadata = None, 
                         spec = tatope.models.tat_ope_spec.TatOpeSpec(
                             foo = '', 
+                            hoge = '', 
                             ports = [
                                 56
                                 ], ), 
@@ -88,11 +51,7 @@ class TestTatOpeList(unittest.TestCase):
                             state = '', ), )
                     ],
                 kind = '',
-                metadata = tatope.models.v1/list_meta.v1.ListMeta(
-                    continue = '', 
-                    remaining_item_count = 56, 
-                    resource_version = '', 
-                    self_link = '', )
+                metadata = None
             )
         else:
             return TatOpeList(
@@ -100,47 +59,10 @@ class TestTatOpeList(unittest.TestCase):
                     tatope.models.tat_ope.TatOpe(
                         api_version = '', 
                         kind = '', 
-                        metadata = tatope.models.v1/object_meta.v1.ObjectMeta(
-                            annotations = {
-                                'key' : ''
-                                }, 
-                            creation_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            deletion_grace_period_seconds = 56, 
-                            deletion_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            finalizers = [
-                                ''
-                                ], 
-                            generate_name = '', 
-                            generation = 56, 
-                            labels = {
-                                'key' : ''
-                                }, 
-                            managed_fields = [
-                                tatope.models.v1/managed_fields_entry.v1.ManagedFieldsEntry(
-                                    api_version = '', 
-                                    fields_type = '', 
-                                    fields_v1 = tatope.models.v1/fields_v1.v1.FieldsV1(), 
-                                    manager = '', 
-                                    operation = '', 
-                                    subresource = '', 
-                                    time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                                ], 
-                            name = '', 
-                            namespace = '', 
-                            owner_references = [
-                                tatope.models.v1/owner_reference.v1.OwnerReference(
-                                    api_version = '', 
-                                    block_owner_deletion = True, 
-                                    controller = True, 
-                                    kind = '', 
-                                    name = '', 
-                                    uid = '', )
-                                ], 
-                            resource_version = '', 
-                            self_link = '', 
-                            uid = '', ), 
+                        metadata = None, 
                         spec = tatope.models.tat_ope_spec.TatOpeSpec(
                             foo = '', 
+                            hoge = '', 
                             ports = [
                                 56
                                 ], ), 

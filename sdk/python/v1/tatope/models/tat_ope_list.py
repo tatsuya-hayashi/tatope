@@ -20,7 +20,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from tatope.models.tat_ope import TatOpe
-from tatope.models.v1_list_meta import V1ListMeta
 from typing import Optional, Set
 from typing_extensions import Self
 

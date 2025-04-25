@@ -36,12 +36,14 @@ class TestTatOpeSpec(unittest.TestCase):
         if include_optional:
             return TatOpeSpec(
                 foo = '',
+                hoge = '',
                 ports = [
                     56
                     ]
             )
         else:
             return TatOpeSpec(
+                hoge = '',
         )
         """
 
