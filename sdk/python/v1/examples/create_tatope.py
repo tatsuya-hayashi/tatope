@@ -1,7 +1,8 @@
 from kubernetes import client, config
-from kubernetes.client import V1ObjectMeta
 
 from tatope.models import TatOpe, TatOpeSpec, TatOpeStatus
+
+from tatope.models.v1_object_meta import V1ObjectMeta
 
 config.load_kube_config()
 
@@ -16,10 +17,27 @@ t = TatOpe(
     api_version="tatope.tatope.local/v1",
     metadata=m,
     spec=TatOpeSpec(
-        foo="fooval1",
-        hoge="hogeval1",
+        hoge="hogehogefooval",
         ports=[12,34]
     )
-)
+).to_dict()
 
 print(t)
+
+crd_api = client.CustomObjectsApi()
+
+result = crd_api.create_namespaced_custom_object(
+    group="tatope.tatope.local",
+    version="v1",
+    namespace="default",
+    plural="tatopes",
+    body=t
+)
+
+crd_api.get_namespaced_custom_object(
+    group="tatope.tatope.local",
+    version="v1",
+    namespace="default",
+    plural="tatopes",
+    name="hogehoge"
+)

@@ -262,6 +262,9 @@ api: generate api
 	rm -rf ./sdk/python/${API_VERSION}/tatope/test/test_*.py
 	java -jar ${SWAGGER_JAR} generate -i ${SWAGGER_API_JSON} -g python -o ./sdk/python/${API_VERSION} -c ./hack/python-sdk/swagger_config.json --git-repo-id tat-operator --git-user-id tatsuya-hayashi
 	cp ./hack/python-sdk/tatope/setup.py ./sdk/python/${API_VERSION}/
+	echo "from kubernetes.client import V1Condition" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
+	echo "from kubernetes.client import V1ListMeta" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
+	echo "from kubernetes.client import V1ObjectMeta" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
 
 
 .PHONY: envtest

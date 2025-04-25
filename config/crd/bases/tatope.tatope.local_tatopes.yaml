@@ -43,12 +43,16 @@ spec:
                 description: Foo is an example field of TatOpe. Edit tatope_types.go
                   to remove/update
                 type: string
+              hoge:
+                type: string
               ports:
                 items:
                   format: int32
                   type: integer
                 type: array
                 x-kubernetes-list-type: set
+            required:
+            - hoge
             type: object
           status:
             description: TatOpeStatus defines the observed state of TatOpe
