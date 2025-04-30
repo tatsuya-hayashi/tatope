@@ -25,4 +25,3 @@ from tatope.models.tat_ope_status import TatOpeStatus
 from kubernetes.client import V1Condition
 from kubernetes.client import V1ListMeta
 from kubernetes.client import V1ObjectMeta
-from kubernetes.client.models import IntOrString
