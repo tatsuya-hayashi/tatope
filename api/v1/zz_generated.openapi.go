@@ -316,17 +316,10 @@ func schema_tatsuyahayashi_tatope_api_v1_TatOpeSpec(ref common.ReferenceCallback
 							},
 						},
 					},
-					"bar": {
-						SchemaProps: spec.SchemaProps{
-							Ref: ref("k8s.io/apimachinery/pkg/util/intstr.IntOrString"),
-						},
-					},
 				},
 				Required: []string{"hoge"},
 			},
 		},
-		Dependencies: []string{
-			"k8s.io/apimachinery/pkg/util/intstr.IntOrString"},
 	}
 }
 
