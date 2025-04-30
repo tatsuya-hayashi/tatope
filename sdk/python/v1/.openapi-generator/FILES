@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/TatOpe.md
@@ -36,12 +35,4 @@ tatope/py.typed
 tatope/rest.py
 test-requirements.txt
 test/__init__.py
-test/test_tat_ope.py
-test/test_tat_ope_ex.py
-test/test_tat_ope_ex_list.py
-test/test_tat_ope_ex_spec.py
-test/test_tat_ope_ex_status.py
-test/test_tat_ope_list.py
-test/test_tat_ope_spec.py
-test/test_tat_ope_status.py
 tox.ini

@@ -26,10 +26,11 @@ class TatOpeSpec(BaseModel):
     """
     TatOpeSpec defines the desired state of TatOpe
     """ # noqa: E501
+    bar: Optional[IntOrString] = None
     foo: Optional[StrictStr] = Field(default=None, description="Foo is an example field of TatOpe. Edit tatope_types.go to remove/update")
     hoge: StrictStr
     ports: Optional[List[StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["foo", "hoge", "ports"]
+    __properties: ClassVar[List[str]] = ["bar", "foo", "hoge", "ports"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +71,9 @@ class TatOpeSpec(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of bar
+        if self.bar:
+            _dict['bar'] = self.bar.to_dict()
         return _dict
 
     @classmethod
@@ -82,6 +86,7 @@ class TatOpeSpec(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "bar": IntOrString.from_dict(obj["bar"]) if obj.get("bar") is not None else None,
             "foo": obj.get("foo"),
             "hoge": obj.get("hoge") if obj.get("hoge") is not None else '',
             "ports": obj.get("ports")

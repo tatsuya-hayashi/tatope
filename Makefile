@@ -265,6 +265,7 @@ api: generate api
 	echo "from kubernetes.client import V1Condition" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
 	echo "from kubernetes.client import V1ListMeta" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
 	echo "from kubernetes.client import V1ObjectMeta" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
+	echo "from kubernetes.client.models import IntOrString" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
 
 
 .PHONY: envtest

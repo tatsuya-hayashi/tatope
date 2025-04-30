@@ -145,6 +145,9 @@
         "hoge"
       ],
       "properties": {
+        "bar": {
+          "$ref": "#/definitions/IntOrString"
+        },
         "foo": {
           "description": "Foo is an example field of TatOpe. Edit tatope_types.go to remove/update",
           "type": "string"

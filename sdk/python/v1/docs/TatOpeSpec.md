@@ -6,6 +6,7 @@ TatOpeSpec defines the desired state of TatOpe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**bar** | [**IntOrString**](IntOrString.md) |  | [optional] 
 **foo** | **str** | Foo is an example field of TatOpe. Edit tatope_types.go to remove/update | [optional] 
 **hoge** | **str** |  | [default to '']
 **ports** | **List[int]** |  | [optional] 

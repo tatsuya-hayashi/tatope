@@ -65,8 +65,8 @@ func swaggify(name string) string {
 	// // k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta
 	// name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta", "v1ListMeta", -1)
 
-	// // k8s.io/apimachinery/pkg/util/intstr.IntOrString -> IntOrString
-	// name = strings.Replace(name, "k8s.io/apimachinery/pkg/util/intstr.", "", -1)
+	// k8s.io/apimachinery/pkg/util/intstr.IntOrString -> IntOrString
+	name = strings.Replace(name, "k8s.io/apimachinery/pkg/util/intstr.", "", -1)
 
 	// // k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta
 	// name = strings.Replace(name, "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta", "v1ObjectMeta", -1)

@@ -18,6 +18,7 @@ package v1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/util/intstr"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
@@ -32,7 +33,8 @@ type TatOpeSpec struct {
 	Foo  string `json:"foo,omitempty"`
 	Hoge string `json:"hoge"`
 	// +listType=set
-	Ports []int32 `json:"ports,omitempty"`
+	Ports []int32            `json:"ports,omitempty"`
+	Bar55 intstr.IntOrString `json:"bar,omitempty"`
 }
 
 // TatOpeStatus defines the observed state of TatOpe
