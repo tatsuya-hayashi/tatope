@@ -145,9 +145,6 @@
         "hoge"
       ],
       "properties": {
-        "bar": {
-          "$ref": "#/definitions/k8s.io.apimachinery.pkg.util.intstr.IntOrString"
-        },
         "foo": {
           "description": "Foo is an example field of TatOpe. Edit tatope_types.go to remove/update",
           "type": "string"
