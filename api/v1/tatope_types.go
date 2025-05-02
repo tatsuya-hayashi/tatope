@@ -24,14 +24,16 @@ import (
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
 type Network2 struct {
-
-	// +optional
-	// +kubebuilder:default=23
 	Port int `json:"port,omitempty"`
 
 	// +optional
-	// +kubebuilder:default="noosd122sddp"
-	Ip string `json:"ip,omitempty"`
+	Port2 int `json:"port2"`
+
+	// +optional
+	Ip string `json:"ip"`
+
+	// +optional
+	Big map[string]string `json:"big"`
 }
 
 // TatOpeSpec defines the desired state of TatOpe

@@ -47,11 +47,15 @@ spec:
                 type: string
               network2:
                 properties:
+                  big:
+                    additionalProperties:
+                      type: string
+                    type: object
                   ip:
-                    default: noosd122sddp
                     type: string
                   port:
-                    default: 23
+                    type: integer
+                  port2:
                     type: integer
                 type: object
               ports:

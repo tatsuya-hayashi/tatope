@@ -18,6 +18,7 @@ package controller
 
 import (
 	"context"
+	"fmt"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -51,6 +52,18 @@ func (r *TatOpeReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctr
 
 	// TODO(user): your logic here
 	logger.Info("Call reconciler...")
+
+	a := &tatopev1.TatOpe{}
+	if err := r.Get(ctx, req.NamespacedName, a); err != nil {
+		logger.Error(err, "unable to fetch TatOpe")
+		return ctrl.Result{}, client.IgnoreNotFound(err)
+	}
+	logger.Info("TatOpe", "name", a.Name, "namespace", a.Namespace)
+	ccc := fmt.Sprintf("TatOpe: %v", a)
+	ccc1 := fmt.Sprintf("TatOpeNeo: %+v", a)
+
+	logger.Info(ccc)
+	logger.Info(ccc1)
 	return ctrl.Result{}, nil
 }
 

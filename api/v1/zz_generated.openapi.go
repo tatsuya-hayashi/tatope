@@ -28,7 +28,7 @@ import (
 
 func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
 	return map[string]common.OpenAPIDefinition{
-		"github.com/tatsuyahayashi/tatope/api/v1.Network":                schema_tatsuyahayashi_tatope_api_v1_Network(ref),
+		"github.com/tatsuyahayashi/tatope/api/v1.Network2":               schema_tatsuyahayashi_tatope_api_v1_Network2(ref),
 		"github.com/tatsuyahayashi/tatope/api/v1.TatOpe":                 schema_tatsuyahayashi_tatope_api_v1_TatOpe(ref),
 		"github.com/tatsuyahayashi/tatope/api/v1.TatOpeEx":               schema_tatsuyahayashi_tatope_api_v1_TatOpeEx(ref),
 		"github.com/tatsuyahayashi/tatope/api/v1.TatOpeExList":           schema_tatsuyahayashi_tatope_api_v1_TatOpeExList(ref),
@@ -92,23 +92,45 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 	}
 }
 
-func schema_tatsuyahayashi_tatope_api_v1_Network(ref common.ReferenceCallback) common.OpenAPIDefinition {
+func schema_tatsuyahayashi_tatope_api_v1_Network2(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
 				Type: []string{"object"},
 				Properties: map[string]spec.Schema{
-					"ip": {
-						SchemaProps: spec.SchemaProps{
-							Description: "kubebuilder:default=1.1.1.1",
-							Type:        []string{"string"},
-							Format:      "",
-						},
-					},
 					"port": {
 						SchemaProps: spec.SchemaProps{
 							Type:   []string{"integer"},
 							Format: "int32",
+						},
+					},
+					"port2": {
+						SchemaProps: spec.SchemaProps{
+							Default: 0,
+							Type:    []string{"integer"},
+							Format:  "int32",
+						},
+					},
+					"ip": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+					"big": {
+						SchemaProps: spec.SchemaProps{
+							Type: []string{"object"},
+							AdditionalProperties: &spec.SchemaOrBool{
+								Allows: true,
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
 						},
 					},
 				},
@@ -395,10 +417,10 @@ func schema_tatsuyahayashi_tatope_api_v1_TatOpeSpec(ref common.ReferenceCallback
 							},
 						},
 					},
-					"network": {
+					"network2": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/tatsuyahayashi/tatope/api/v1.Network"),
+							Ref:     ref("github.com/tatsuyahayashi/tatope/api/v1.Network2"),
 						},
 					},
 				},
@@ -406,7 +428,7 @@ func schema_tatsuyahayashi_tatope_api_v1_TatOpeSpec(ref common.ReferenceCallback
 			},
 		},
 		Dependencies: []string{
-			"github.com/tatsuyahayashi/tatope/api/v1.Network"},
+			"github.com/tatsuyahayashi/tatope/api/v1.Network2"},
 	}
 }
 
