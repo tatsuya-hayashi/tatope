@@ -4,9 +4,9 @@ metadata:
   labels:
     app.kubernetes.io/name: tatope
     app.kubernetes.io/managed-by: kustomize
-  name: tat8
+  name: tat23
 spec:
   # TODO(user): Add fields here
   hoge: test
   network2:
-    port2: 0
+    port2: 123

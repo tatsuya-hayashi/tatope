@@ -24,6 +24,9 @@ import (
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
 type Network2 struct {
+
+	// +kubebuilder:default=350
+	// +optional
 	Port int `json:"port,omitempty"`
 
 	// +optional

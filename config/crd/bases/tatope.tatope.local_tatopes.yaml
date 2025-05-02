@@ -54,6 +54,7 @@ spec:
                   ip:
                     type: string
                   port:
+                    default: 350
                     type: integer
                   port2:
                     type: integer
