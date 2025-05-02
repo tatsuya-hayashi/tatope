@@ -108,6 +108,8 @@ generate: controller-gen openapi-gen ## Generate code containing DeepCopy, DeepC
 	rm -rf ./api/${API_VERSION}/zz_generated.openapi.go
 	rm -rf ./api/${API_VERSION}/zz_generated.openapi.go
 	${OPENAPI_GEN} --logtostderr=true  --output-file zz_generated.openapi.go --output-pkg "github.com/tatsuya-hayashi/tatope/api/${API_VERSION}" --output-dir ./api/${API_VERSION}/ --go-header-file ./hack/boilerplate.go.txt -r "-" \
+	"k8s.io/apimachinery/pkg/apis/meta/v1" \
+	"k8s.io/apimachinery/pkg/runtime" \
 	./api/${API_VERSION}/
 
 #	"k8s.io/apimachinery/pkg/apis/meta/v1" \
@@ -253,7 +255,9 @@ $(OPENAPI_GEN): $(LOCALBIN)
 .PHONY: swagger-jar
 swagger-jar: $(SWAGGER_JAR) ## Download openapi-generator-cli locally if necessary.
 $(SWAGGER_JAR): $(LOCALBIN)
-	wget -qO ${SWAGGER_JAR} "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.12.0/openapi-generator-cli-7.12.0.jar"
+	wget -qO ${SWAGGER_JAR} "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.11.0/openapi-generator-cli-7.11.0.jar"
+#	wget -qO ${SWAGGER_JAR} "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.1.0/openapi-generator-cli-5.1.0.jar"
+#	wget -qO ${SWAGGER_JAR} "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.1.0/openapi-generator-cli-6.1.0.jar"
 
 .PHONY: api
 api: generate api
@@ -262,9 +266,9 @@ api: generate api
 	rm -rf ./sdk/python/${API_VERSION}/tatope/test/test_*.py
 	java -jar ${SWAGGER_JAR} generate -i ${SWAGGER_API_JSON} -g python -o ./sdk/python/${API_VERSION} -c ./hack/python-sdk/swagger_config.json --git-repo-id tat-operator --git-user-id tatsuya-hayashi
 	cp ./hack/python-sdk/tatope/setup.py ./sdk/python/${API_VERSION}/
-	echo "from kubernetes.client import V1Condition" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
-	echo "from kubernetes.client import V1ListMeta" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
-	echo "from kubernetes.client import V1ObjectMeta" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
+#	echo "from kubernetes.client import V1Condition" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
+#	echo "from kubernetes.client import V1ListMeta" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
+#	echo "from kubernetes.client import V1ObjectMeta" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
 #	echo "from kubernetes.client.models import IntOrString" >> ./sdk/python/${API_VERSION}/tatope/models/__init__.py
 
 
