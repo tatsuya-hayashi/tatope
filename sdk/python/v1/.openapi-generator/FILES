@@ -5,6 +5,7 @@
 README.md
 docs/K8sIoApimachineryPkgRuntimeTypeMeta.md
 docs/K8sIoApimachineryPkgRuntimeUnknown.md
+docs/Network.md
 docs/TatOpe.md
 docs/TatOpeEx.md
 docs/TatOpeExList.md
@@ -71,6 +72,7 @@ tatope/exceptions.py
 tatope/models/__init__.py
 tatope/models/k8s_io_apimachinery_pkg_runtime_type_meta.py
 tatope/models/k8s_io_apimachinery_pkg_runtime_unknown.py
+tatope/models/network.py
 tatope/models/tat_ope.py
 tatope/models/tat_ope_ex.py
 tatope/models/tat_ope_ex_list.py

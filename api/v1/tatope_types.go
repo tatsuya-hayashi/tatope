@@ -23,6 +23,17 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
+type Network2 struct {
+
+	// +optional
+	// +kubebuilder:default=23
+	Port int `json:"port,omitempty"`
+
+	// +optional
+	// +kubebuilder:default="noosd122sddp"
+	Ip string `json:"ip,omitempty"`
+}
+
 // TatOpeSpec defines the desired state of TatOpe
 type TatOpeSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
@@ -33,6 +44,8 @@ type TatOpeSpec struct {
 	Hoge string `json:"hoge"`
 	// +listType=set
 	Ports []int32 `json:"ports,omitempty"`
+	// +optional
+	Network2 Network2 `json:"network2,omitempty"`
 	//Bar55 intstr.IntOrString `json:"bar,omitempty"`
 }
 

@@ -28,6 +28,7 @@ import (
 
 func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
 	return map[string]common.OpenAPIDefinition{
+		"github.com/tatsuyahayashi/tatope/api/v1.Network":                schema_tatsuyahayashi_tatope_api_v1_Network(ref),
 		"github.com/tatsuyahayashi/tatope/api/v1.TatOpe":                 schema_tatsuyahayashi_tatope_api_v1_TatOpe(ref),
 		"github.com/tatsuyahayashi/tatope/api/v1.TatOpeEx":               schema_tatsuyahayashi_tatope_api_v1_TatOpeEx(ref),
 		"github.com/tatsuyahayashi/tatope/api/v1.TatOpeExList":           schema_tatsuyahayashi_tatope_api_v1_TatOpeExList(ref),
@@ -88,6 +89,31 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"k8s.io/apimachinery/pkg/runtime.RawExtension":                   schema_k8sio_apimachinery_pkg_runtime_RawExtension(ref),
 		"k8s.io/apimachinery/pkg/runtime.TypeMeta":                       schema_k8sio_apimachinery_pkg_runtime_TypeMeta(ref),
 		"k8s.io/apimachinery/pkg/runtime.Unknown":                        schema_k8sio_apimachinery_pkg_runtime_Unknown(ref),
+	}
+}
+
+func schema_tatsuyahayashi_tatope_api_v1_Network(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"ip": {
+						SchemaProps: spec.SchemaProps{
+							Description: "kubebuilder:default=1.1.1.1",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"port": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"integer"},
+							Format: "int32",
+						},
+					},
+				},
+			},
+		},
 	}
 }
 
@@ -369,10 +395,18 @@ func schema_tatsuyahayashi_tatope_api_v1_TatOpeSpec(ref common.ReferenceCallback
 							},
 						},
 					},
+					"network": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref("github.com/tatsuyahayashi/tatope/api/v1.Network"),
+						},
+					},
 				},
 				Required: []string{"hoge"},
 			},
 		},
+		Dependencies: []string{
+			"github.com/tatsuyahayashi/tatope/api/v1.Network"},
 	}
 }
 

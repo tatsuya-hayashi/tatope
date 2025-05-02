@@ -7,6 +7,19 @@
   },
   "paths": {},
   "definitions": {
+    "Network": {
+      "type": "object",
+      "properties": {
+        "ip": {
+          "description": "kubebuilder:default=1.1.1.1",
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
     "TatOpe": {
       "description": "TatOpe is the Schema for the tatopes API",
       "type": "object",
@@ -152,6 +165,10 @@
         "hoge": {
           "type": "string",
           "default": ""
+        },
+        "network": {
+          "default": {},
+          "$ref": "#/definitions/Network"
         },
         "ports": {
           "type": "array",

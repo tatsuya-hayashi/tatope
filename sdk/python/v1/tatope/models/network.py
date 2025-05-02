@@ -19,19 +19,16 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from tatope.models.network import Network
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TatOpeSpec(BaseModel):
+class Network(BaseModel):
     """
-    TatOpeSpec defines the desired state of TatOpe
+    Network
     """ # noqa: E501
-    foo: Optional[StrictStr] = Field(default=None, description="Foo is an example field of TatOpe. Edit tatope_types.go to remove/update")
-    hoge: StrictStr
-    network: Optional[Network] = None
-    ports: Optional[List[StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["foo", "hoge", "network", "ports"]
+    ip: Optional[StrictStr] = Field(default=None, description="kubebuilder:default=1.1.1.1")
+    port: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["ip", "port"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +48,7 @@ class TatOpeSpec(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TatOpeSpec from a JSON string"""
+        """Create an instance of Network from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,14 +69,11 @@ class TatOpeSpec(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of network
-        if self.network:
-            _dict['network'] = self.network.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TatOpeSpec from a dict"""
+        """Create an instance of Network from a dict"""
         if obj is None:
             return None
 
@@ -87,10 +81,8 @@ class TatOpeSpec(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "foo": obj.get("foo"),
-            "hoge": obj.get("hoge") if obj.get("hoge") is not None else '',
-            "network": Network.from_dict(obj["network"]) if obj.get("network") is not None else None,
-            "ports": obj.get("ports")
+            "ip": obj.get("ip"),
+            "port": obj.get("port")
         })
         return _obj
 

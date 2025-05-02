@@ -69,6 +69,7 @@ Class | Method | HTTP request | Description
 
  - [K8sIoApimachineryPkgRuntimeTypeMeta](docs/K8sIoApimachineryPkgRuntimeTypeMeta.md)
  - [K8sIoApimachineryPkgRuntimeUnknown](docs/K8sIoApimachineryPkgRuntimeUnknown.md)
+ - [Network](docs/Network.md)
  - [TatOpe](docs/TatOpe.md)
  - [TatOpeEx](docs/TatOpeEx.md)
  - [TatOpeExList](docs/TatOpeExList.md)

@@ -45,6 +45,15 @@ spec:
                 type: string
               hoge:
                 type: string
+              network2:
+                properties:
+                  ip:
+                    default: noosd122sddp
+                    type: string
+                  port:
+                    default: 23
+                    type: integer
+                type: object
               ports:
                 items:
                   format: int32

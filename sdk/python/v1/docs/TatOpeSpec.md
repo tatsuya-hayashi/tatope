@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **foo** | **str** | Foo is an example field of TatOpe. Edit tatope_types.go to remove/update | [optional] 
 **hoge** | **str** |  | [default to '']
+**network** | [**Network**](Network.md) |  | [optional] 
 **ports** | **List[int]** |  | [optional] 
 
 ## Example

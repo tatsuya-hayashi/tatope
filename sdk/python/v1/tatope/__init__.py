@@ -32,6 +32,7 @@ from tatope.exceptions import ApiException
 # import models into sdk package
 from tatope.models.k8s_io_apimachinery_pkg_runtime_type_meta import K8sIoApimachineryPkgRuntimeTypeMeta
 from tatope.models.k8s_io_apimachinery_pkg_runtime_unknown import K8sIoApimachineryPkgRuntimeUnknown
+from tatope.models.network import Network
 from tatope.models.tat_ope import TatOpe
 from tatope.models.tat_ope_ex import TatOpeEx
 from tatope.models.tat_ope_ex_list import TatOpeExList
